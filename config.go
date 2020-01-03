@@ -21,11 +21,11 @@
 package main
 
 import (
+	"github.com/yhyzgn/gox/component/of/filter/cors"
 	"net/http"
 
 	"github.com/yhyzgn/gox/component/filter"
 	"github.com/yhyzgn/gox/component/interceptor"
-	"github.com/yhyzgn/gox/component/of/filter/cors"
 	"github.com/yhyzgn/gox/context"
 	testFilter "gox-app/filter"
 	testInterceptor "gox-app/interceptor"
