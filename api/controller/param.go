@@ -47,7 +47,10 @@ func (c ParamController) Mapping(mapper *core.Mapper) {
 }
 
 func (c ParamController) Native(writer http.ResponseWriter, request *http.Request) string {
-	return c.res("Native " + request.URL.Query().Get("param"))
+	user := request.URL.Query().Get("param")
+	request.Header.Set("X-Env", "dev")
+	writer.Header().Add("User", user)
+	return c.res("Native " + user)
 }
 
 func (c ParamController) NoReturn(writer http.ResponseWriter, request *http.Request) {

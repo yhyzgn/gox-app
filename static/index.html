@@ -22,6 +22,24 @@
             transform: translateX(-50%) translateY(-50%);
         }
     </style>
+    <script src="js/x.js"></script>
+    <script src="js/ajax.js"></script>
+    <script>
+        $.ajax({
+            url: "/api/param/native?param=Jason",
+            method: "GET",
+            headers: {
+                Token: "asdfasdfasdfasfd"
+            },
+            params: {},
+            success: function (data) {
+                console.log(data)
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    </script>
 </head>
 <body>
 <div>静态页面</div>
