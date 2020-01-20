@@ -50,7 +50,7 @@ func (c *Config) ConfigFilter(chain *filter.Chain) {
 	chain.
 		AddFilters("/", cors.NewXCorsFilter().AllowedHeaders("Token"), testFilter.NewTestFilter()).
 		AddFilters("/api/*", testFilter.NewLogFilter()).
-		Exclude("/api/param/vo")
+		Exclude("/api/log/*")
 }
 
 func (c *Config) ConfigInterceptor(register *interceptor.Register) {

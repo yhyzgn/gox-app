@@ -93,5 +93,6 @@ func initWeb(r *gox.GoX) {
 	r.
 		Configure(NewConfig()).
 		Mapping("/api/normal", new(controller.NormalController)).
-		Mapping("/api/param", new(controller.ParamController))
+		Mapping("/api/param", new(controller.ParamController)).
+		Mapping("/api/log", new(controller.LogController))
 }
