@@ -31,8 +31,6 @@ import (
 	"time"
 
 	"github.com/yhyzgn/gog"
-	"github.com/yhyzgn/gog/level"
-	"github.com/yhyzgn/gog/writer"
 	"github.com/yhyzgn/gox"
 )
 
@@ -44,11 +42,8 @@ func init() {
 	env := os.Getenv("ENV")
 	if env == "prod" {
 		// 生产环境
-		gog.AddWriter(writer.NewJSONWriter())
-		gog.Level(level.INFO)
-	} else {
-		// 开发环境
-		gog.AddWriter(writer.NewConsoleWriter())
+		gog.SetFormatter(gog.NewJSONFormatter())
+		gog.SetLevel(gog.INFO)
 	}
 	gog.Async(true)
 }
