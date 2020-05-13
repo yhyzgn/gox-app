@@ -25,5 +25,6 @@ type WebConfig struct {
 }
 
 type Server struct {
-	Port int `yaml:"port"`
+	Port        int    `yaml:"port"`
+	ContextPath string `yaml:"context-path"`
 }

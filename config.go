@@ -21,8 +21,8 @@
 package main
 
 import (
-	"github.com/yhyzgn/gox/component/of/filter/cors"
 	"github.com/yhyzgn/gox/ctx"
+	"github.com/yhyzgn/gox/of/filter/cors"
 	"net/http"
 
 	"github.com/yhyzgn/gox/component/filter"

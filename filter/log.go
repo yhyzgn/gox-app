@@ -23,6 +23,7 @@ package filter
 import (
 	"github.com/yhyzgn/gog"
 	"github.com/yhyzgn/gox/component/filter"
+	"github.com/yhyzgn/gox/of"
 	"net/http"
 )
 
@@ -36,6 +37,10 @@ func NewLogFilter() *LogFilter {
 func (lg *LogFilter) DoFilter(writer http.ResponseWriter, request *http.Request, chain *filter.Chain) {
 	gog.Info("This is log filter. ", request.URL.Path)
 
+	wtr := of.NewResponseWriter(writer)
+
 	// 往下传递
-	chain.DoFilter(writer, request)
+	chain.DoFilter(wtr, request)
+
+	gog.Info(wtr.ContentLength(), string(wtr.ResponseBody()))
 }

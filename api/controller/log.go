@@ -23,9 +23,12 @@ package controller
 import (
 	"github.com/yhyzgn/gog"
 	"github.com/yhyzgn/gox/core"
+	"github.com/yhyzgn/gox/of"
 )
 
-type LogController struct{}
+type LogController struct {
+	of.Controller
+}
 
 func (c LogController) Mapping(mapper *core.Mapper) {
 	mapper.Post("/log").HandlerFunc(c.Log).Param("log").Mapping()

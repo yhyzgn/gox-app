@@ -30,10 +30,6 @@ import (
 	"os"
 )
 
-const (
-	port = 8080
-)
-
 func init() {
 	env := os.Getenv("ENV")
 	if env == "prod" {
@@ -51,7 +47,7 @@ func main() {
 	err := x.Load("config/config.yml", web)
 	fmt.Println(web, err)
 
-	initWeb(x)
+	initWeb(x, web.Server)
 
 	server := &http.Server{
 		Addr:    fmt.Sprintf(":%d", web.Server.Port),
@@ -61,9 +57,10 @@ func main() {
 	x.Run(server)
 }
 
-func initWeb(r *gox.GoX) {
+func initWeb(r *gox.GoX, svr config.Server) {
 	r.
 		Configure(NewConfig()).
+		ContextPath(svr.ContextPath).
 		Mapping("/api/normal", new(controller.NormalController)).
 		Mapping("/api/param", new(controller.ParamController)).
 		Mapping("/api/log", new(controller.LogController))
