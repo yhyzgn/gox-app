@@ -21,18 +21,13 @@
 package main
 
 import (
-	"context"
 	"fmt"
+	"github.com/yhyzgn/gog"
+	"github.com/yhyzgn/gox"
 	"gox-app/api/controller"
 	"gox-app/config"
 	"net/http"
 	"os"
-	"os/signal"
-	"syscall"
-	"time"
-
-	"github.com/yhyzgn/gog"
-	"github.com/yhyzgn/gox"
 )
 
 const (
@@ -50,43 +45,20 @@ func init() {
 }
 
 func main() {
-	handler := gox.NewGoX()
+	x := gox.NewGoX()
 
 	web := &config.WebConfig{}
-	err := handler.Load("config/config.yml", web)
+	err := x.Load("config/config.yml", web)
 	fmt.Println(web, err)
 
-	initWeb(handler)
+	initWeb(x)
 
-	server := http.Server{
+	server := &http.Server{
 		Addr:    fmt.Sprintf(":%d", web.Server.Port),
-		Handler: handler,
+		Handler: x,
 	}
 
-	go func() {
-		exit := make(chan os.Signal, 1)
-		signal.Notify(exit, os.Interrupt, syscall.SIGTERM)
-		<-exit
-
-		gog.Info("收到关闭信号，正在关闭 GoX 服务 ...")
-		ctx, cancel := context.WithTimeout(context.Background(), 6*time.Second)
-		defer cancel()
-
-		err := server.Shutdown(ctx)
-		if err != nil {
-			gog.ErrorF("GoX 关闭错误 【{}】", err)
-		}
-	}()
-
-	gog.InfoF("GoX 启动于端口 【%d】", port)
-	err = server.ListenAndServe()
-	if err != nil {
-		if err == http.ErrServerClosed {
-			gog.Info("GoX 服务已安全退出！")
-			return
-		}
-		gog.Error(err)
-	}
+	x.Run(server)
 }
 
 func initWeb(r *gox.GoX) {
