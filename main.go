@@ -24,6 +24,7 @@ import (
 	"context"
 	"fmt"
 	"gox-app/api/controller"
+	"gox-app/config"
 	"net/http"
 	"os"
 	"os/signal"
@@ -51,10 +52,14 @@ func init() {
 func main() {
 	handler := gox.NewGoX()
 
+	web := &config.WebConfig{}
+	err := handler.Load("config/config.yml", web)
+	fmt.Println(web, err)
+
 	initWeb(handler)
 
 	server := http.Server{
-		Addr:    fmt.Sprintf(":%d", port),
+		Addr:    fmt.Sprintf(":%d", web.Server.Port),
 		Handler: handler,
 	}
 
@@ -74,7 +79,7 @@ func main() {
 	}()
 
 	gog.InfoF("GoX 启动于端口 【%d】", port)
-	err := server.ListenAndServe()
+	err = server.ListenAndServe()
 	if err != nil {
 		if err == http.ErrServerClosed {
 			gog.Info("GoX 服务已安全退出！")

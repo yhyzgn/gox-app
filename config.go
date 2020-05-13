@@ -22,11 +22,11 @@ package main
 
 import (
 	"github.com/yhyzgn/gox/component/of/filter/cors"
+	"github.com/yhyzgn/gox/ctx"
 	"net/http"
 
 	"github.com/yhyzgn/gox/component/filter"
 	"github.com/yhyzgn/gox/component/interceptor"
-	"github.com/yhyzgn/gox/context"
 	testFilter "gox-app/filter"
 	testInterceptor "gox-app/interceptor"
 )
@@ -38,7 +38,7 @@ func NewConfig() *Config {
 	return new(Config)
 }
 
-func (c *Config) Context(ctx *context.GoXContext) {
+func (c *Config) Context(ctx *ctx.GoXContext) {
 	ctx.
 		SetStaticDir("static").
 		SetNotFoundHandler(func(writer http.ResponseWriter, request *http.Request) {
