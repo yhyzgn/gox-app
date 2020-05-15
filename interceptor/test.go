@@ -34,10 +34,11 @@ func NewTestInterceptor() *TestInterceptor {
 	return new(TestInterceptor)
 }
 
-func (ti *TestInterceptor) PreHandle(writer http.ResponseWriter, request *http.Request, handler common.Handler) bool {
+func (ti *TestInterceptor) PreHandle(writer http.ResponseWriter, request *http.Request, handler common.Handler) (bool, *http.Request, http.ResponseWriter) {
 	gog.DebugF("TestInterceptor: {}", request.URL.Path)
-	return true
+	return true, request, writer
 }
 
-func (ti *TestInterceptor) AfterHandle(writer http.ResponseWriter, request *http.Request, handler common.Handler, result reflect.Value, err error) {
+func (ti *TestInterceptor) AfterHandle(writer http.ResponseWriter, request *http.Request, handler common.Handler, result reflect.Value, err error) (*http.Request, http.ResponseWriter) {
+	return request, writer
 }

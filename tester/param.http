@@ -12,7 +12,7 @@ GET localhost:8080/api/param/native?param=测试啦
 ###
 
 # 原生的 http.ResponseWriter 和 *http.Request 参数，处理器无返回值，直接内部处理
-GET localhost:8080/api/param/noReturn?param=测试啦
+GET localhost:8080/gox/api/param/noReturn?param=测试啦
 
 ###
 
