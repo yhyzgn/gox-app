@@ -50,6 +50,16 @@ func (c ParamController) Native(writer http.ResponseWriter, request *http.Reques
 	user := request.URL.Query().Get("param")
 	request.Header.Set("X-Env", "dev")
 	writer.Header().Add("User", user)
+
+	http.SetCookie(writer, &http.Cookie{
+		Name:     "TestCookie",
+		Value:    "test-cookie",
+		Path:     "/",
+		Domain:   "localhost",
+		Secure:   false,
+		HttpOnly: false,
+	})
+
 	return c.res("Native " + user)
 }
 

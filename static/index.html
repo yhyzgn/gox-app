@@ -34,6 +34,21 @@
             params: {},
             success: function (data) {
                 console.log(data)
+
+                $.ajax({
+                    url: "/gox/api/param/required?name=Jason&age=23",
+                    method: "GET",
+                    headers: {
+                        Token: "asdfasdfasdfasfd"
+                    },
+                    params: {},
+                    success: function (data) {
+                        console.log(data)
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
             },
             error: function (err) {
                 console.log(err)
