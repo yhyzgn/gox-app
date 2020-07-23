@@ -27,6 +27,7 @@ import (
 	"gox-app/api/controller"
 	"gox-app/config"
 	"net/http"
+	_ "net/http/pprof"
 	"os"
 )
 
