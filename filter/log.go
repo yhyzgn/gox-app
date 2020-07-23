@@ -42,5 +42,5 @@ func (lg *LogFilter) DoFilter(writer http.ResponseWriter, request *http.Request,
 	// 往下传递
 	chain.DoFilter(wtr, request)
 
-	gog.Info(wtr.ContentLength(), string(wtr.ResponseBody()))
+	gog.Info(wtr.ContentLength(), " ", string(wtr.ResponseBody()))
 }

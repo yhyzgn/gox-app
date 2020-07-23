@@ -122,8 +122,8 @@ type User struct {
 }
 
 type Student struct {
-	ID    int `param:"id"`
-	Name  string
-	Age   int    `param:"age" required:""`
-	Token string `header:""`
+	ID    int    `param:"id" json:"id"`
+	Name  string `json:"name"`
+	Age   int    `param:"age" required:"" json:"age"`
+	Token string `header:"" json:"token"`
 }
