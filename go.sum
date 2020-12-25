@@ -1,5 +1,6 @@
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
+<<<<<<< HEAD
 github.com/yhyzgn/gog v1.1.7 h1:2+5ZtzMpNCXihApI9xd1Xg1BvC9G3UbWGV/3Ys1x9tE=
 github.com/yhyzgn/gog v1.1.7/go.mod h1:lpYQ1RZdgLZAboLjtAoJ6FJHufWI6d/W/PWEmkRwGvM=
 github.com/yhyzgn/gog v1.1.9 h1:Mg/zkFMTG/8PJp/L7k7louQx97XNJ2FTJb1QnW9VchY=
@@ -10,6 +11,14 @@ github.com/yhyzgn/gox v1.1.1 h1:dD1CQEB8p8pyrirtjAOSiThqMaCCykOBexuWuYeB2mQ=
 github.com/yhyzgn/gox v1.1.1/go.mod h1:+YA5tX/daCU0u9E/b01ad79gHnUt7WpKqkGzkn/whsA=
 github.com/yhyzgn/gox v1.1.5 h1:E2yyoTr0KzdWyeiiorMOfCJfTZk80UORGCdf6X8DPZo=
 github.com/yhyzgn/gox v1.1.5/go.mod h1:zRswapHSiRcHdLLDtwOqiym0TRWKRWjYcEOalwOStTY=
+=======
+github.com/yhyzgn/gog v1.1.8 h1:vzmNgowpetYancE2x7RLNiSOazmMkrwGaNFpwd6dhiA=
+github.com/yhyzgn/gog v1.1.8/go.mod h1:lpYQ1RZdgLZAboLjtAoJ6FJHufWI6d/W/PWEmkRwGvM=
+github.com/yhyzgn/golus v1.0.3 h1:qI+ZGLcSTMHna4pXDRlUSwA2KEiKFqPxm65VAev6eV0=
+github.com/yhyzgn/golus v1.0.3/go.mod h1:45my4h9DHpjpNCOTtIPFDIxko6VS6YJIayEOIn4V6Rw=
+github.com/yhyzgn/gox v1.1.4 h1:HIJ40o08d6KbnB/Y5UXI0nUc2wiQjPqHFBR5FikF2pw=
+github.com/yhyzgn/gox v1.1.4/go.mod h1:dnPjlUXU6Kl1EclE0SF+0bbdQ/rC186vvoY+LPBKYkQ=
+>>>>>>> 34ab420680e6e8104e995a3d5c01738f8ed93102
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.3.0 h1:clyUAQHOM3G0M3f5vQj7LuJrETvjVot3Z5el9nffUtU=
